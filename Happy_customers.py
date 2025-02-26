@@ -5,18 +5,9 @@ from sklearn.model_selection import train_test_split
 
 # Load and prepare data
 df = pd.read_csv("ACME-HappinessSurvey2020.csv")
-df.rename(columns={
-    'Y': 'Happy',
-    'X1': 'On_time',
-    'X2': 'Items_ok',
-    'X3': 'Ordered_all',
-    'X4': 'Good_price',
-    'X5': 'Satisfied',
-    'X6': 'app_easy'
-}, inplace=True)
 
-y = df['Happy']
-X = df.drop(columns=['Happy'])
+y = df['Y']
+X = df.drop(columns=['Y'])
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
